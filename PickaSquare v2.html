@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PickaSquare v2</title>
+	
+<style>
+body {
+		font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';		
+		text-align: center;
+		background-color: #c7d3b2;		
+	}
+	
+.header {
+		border-bottom: 1px solid #d1d2d3;	
+	}		
+	
+	h1 {
+		font-size: 28px;
+		color: #76a6ac;
+		margin: auto;
+	}
+	h2 {
+		font-size: 18px;
+		color: #76a6ac;
+	}
+	p {
+		font-size: 14px;
+		color: #292929;
+		text-align: center;
+	}	
+	
+	input {
+		font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif';		
+		text-align: center;		
+		background-color: #c7d3b2;
+		border: thin #292929;
+		
+	}	
+	
+	.keyPad {
+		background-color: #737492; 
+		padding:20px; 
+	}
+ 	
+	
+</style>	
+
+<script>
+
+var randomNumber; //request variable for random number
+function Random() {
+num = Math.floor((Math.random() * 9) + 1); // 1-9 for testing
+return num;
+}
+function newGame(){ //start new game, select a random number corresponding to a box. Display 
+randomNumber = Random();
+document.pickASquare.Output.value='Tap on a square to see if you can guess what I am thinking of';
+document.pickASquare.HighLow.value='';
+document.pickASquare.Input.value='';
+}
+function Game(Number) {  //
+if(Number==randomNumber) {
+document.pickASquare.Output.value='Well done, you guessed it. It was ' + randomNumber + '. You win a virtual mars bar. Hit Restart to play again.';
+document.pickASquare.HighLow.value='Got It!';
+}
+else {
+document.pickASquare.Output.value='Nope, ' + Number + ' is not the number I am thinking about.';
+document.pickASquare.HighLow.value=(randomNumber > Number) ? 'Try higher' : 'Try lower';
+   }
+}
+</script>
+</head>
+
+<body>
+<section class="header">	
+<h1>Welcome to Pick a Square</h1>
+<h2>The fast paced, electrifying game that could end up with you winning a virtual Mars bar*!</h2>
+<p style="font-size:10px; text-align: center">*Virtual is less calories and may avoid being sued by Mars </p>	
+</section>	
+<section class="main">
+<p></p>	
+<input style="background-color:#76a6ac; padding: 10px;" type="button" name="newGame" value="Start game" OnClick="newGame()">	
+<form name="pickASquare"><br/>
+<input style="font-size: 14px; text-align: center;" type="txt" name="Output" value="" Size="170"><br>
+<p>You think it is: <input type="txt" name="Input" value='' Size="14px">
+The number really is:
+<input type="txt" name="HighLow" value='' Size="14px"></p>
+	
+	<p></p>
+<div class="keyPad">	
+<input style="background-color: #e38383; height: 50px; width: 50px; margin: 5px;" type="button" name="one"  value="1" OnClick="Game(pickASquare.Input.value); pickASquare.Input.value='1'">
+<input style="background-color: #e38383; height: 50px; width: 50px; margin: 5px;" type="button" name="one"  value="2" OnClick="Game(pickASquare.Input.value); pickASquare.Input.value='2'">
+<input style="background-color: #e38383; height: 50px; width: 50px; margin: 5px;" type="button" name="one"  value="3" OnClick="Game(pickASquare.Input.value); pickASquare.Input.value='3'"><br>
+<input style="background-color: #e38383; height: 50px; width: 50px; margin: 5px;" type="button" name="one"  value="4" OnClick="Game(pickASquare.Input.value); pickASquare.Input.value='4'">
+<input style="background-color: #e38383; height: 50px; width: 50px; margin: 5px;" type="button" name="one"  value="5" OnClick="Game(pickASquare.Input.value); pickASquare.Input.value='5'">
+<input style="background-color: #e38383; height: 50px; width: 50px; margin: 5px;" type="button" name="one"  value="6" OnClick="Game(pickASquare.Input.value); pickASquare.Input.value='6'"><br>
+<input style="background-color: #e38383; height: 50px; width: 50px; margin: 5px;" type="button" name="one"  value="7" OnClick="Game(pickASquare.Input.value); pickASquare.Input.value='7'">
+<input style="background-color: #e38383; height: 50px; width: 50px; margin: 5px;" type="button" name="one"  value="8" OnClick="Game(pickASquare.Input.value); pickASquare.Input.value='8'">
+<input style="background-color: #e38383; height: 50px; width: 50px; margin: 5px;" type="button" name="one"  value="9" OnClick="Game(pickASquare.Input.value); pickASquare.Input.value='9'"><br>
+<input style="background-color: #e38383; height: 50px; width: 50px; margin: 5px;" type="button" name="one"  value="0" OnClick="Game(pickASquare.Input.value); pickASquare.Input.value='0'"><br/>
+
+</div>
+</form>
+	
+	
+	
+
+	
+	
+
+	
+	
+	
+</section>	
+	
+	
+	
+	
+</body>
+</html>
